@@ -9,19 +9,36 @@ class PageSatu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Text(
-            "Page 1",
-            style: TextStyle(color: Colors.black),
+        drawer: Drawer(
+          child: Column(
+            children: [
+              Container(
+                height: 200,
+                color: Colors.amberAccent,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ListTile(
+                        leading: CircleAvatar(),
+                        title: Text("Nama Lengkap"),
+                        subtitle: Text("Alamat"),
+                      )
+                    ]),
+              ),
+              Expanded(
+                child: ListView.builder(
+                    itemCount: 20,
+                    itemBuilder: (context, index) => ListTile(
+                          leading: CircleAvatar(),
+                          title: Text("Nama Lengkap"),
+                          subtitle: Text("Alamat"),
+                        )),
+              ),
+            ],
           ),
-          //Container(height: 20,color: Colors.amber,),
-          //centerTitle: true,
-          //leading: Container(color: Colors.yellow,),leadingWidth: 100,
-          //actions: [Text("Tombol 1"),Text("Tombol 2"),],
-          //bottom: PreferredSize(preferredSize: Size.fromHeight(100),
-          //child: Container(height: 100,color: Colors.red,width: 20,),),
+        ),
+        appBar: AppBar(
+          title: Text("Page 1"),
         ),
         body: Center(
           child: ElevatedButton(
